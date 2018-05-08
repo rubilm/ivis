@@ -30,6 +30,8 @@ d3.csv("data/total.csv", function(error, data) {
     d.Unfall = +d.Unfall;
   });
 
+  data.sort(function(a, b) { return a.Unfall - b.Unfall; });
+
   // Scale the range of the data in the domains
   x.domain([0, d3.max(data, function(d){ return d.Unfall; })])
   y.domain(data.map(function(d) { return d.Kanton; }));

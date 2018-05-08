@@ -30,7 +30,7 @@ var g = svg.selectAll(".arc")
 
 g.append("path")
   .attr("d", arc)
-  .style("fill", function(d) { return color(d.data.art); });
+  .style("fill", function(d) { return color(d.data.art); })
 
 g.append("text")
   .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
