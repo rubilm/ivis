@@ -2,15 +2,55 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <title>IVIS - FS18</title>
+  <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="src/style.css">
+
+  <style> 
+      .bar { fill: steelblue; }    
+  </style>
 </head>
 <body>
-  <h1>boxplot</h1>
-<!-- put your stuff here -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 background-container">
+          <div class="row">
+              <h1>Swiss vehicle traffic accidents</h1>
+          </div>
+          <br/>
+          <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-8">
+                <h3>Amount of the accidents per canton</h3>
+              </div>
+              <div class="col-md-2">
+                  <label for="year">Year:</label>
+                  <select class="form-control" id="year">
+                      <option>2012</option>
+                      <option>2013</option>
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                    </select>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                  <p>Graph Nr 1</p>
+                  <svg></svg>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  
-
-<script src='lib/d3.v4.js'></script>
-<script src='lib/lodash.js'></script>
-<script src='src/script_start.js'></script>
+<script src='lib/js/d3.v4.js'></script>
+<script src='lib/js/lodash.js'></script>
+<script src='src/script_first.js'></script>
 </body>
 </html>
