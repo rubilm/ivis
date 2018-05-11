@@ -1,0 +1,45 @@
+.background-container{
+    border: 1px solid #F7F7F7;
+    background-color: #F3F3F3;
+    margin-top: 50px;
+    padding-top: 30px;
+    margin-bottom: 100px;
+}
+
+.graph-background{
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.title{
+    color: #939393;
+    font-weight: lighter;
+}
+
+.display-5{
+    font-weight: normal;
+}
+
+.bar {
+    fill: #1976D2;
+  }
+
+.arc text {
+    font: 14px sans-serif;
+    text-anchor: middle;
+    color: #ffffff;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+body{
+    background-image: url("../img/background-image.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+

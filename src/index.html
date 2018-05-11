@@ -1,74 +1,81 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8"/>
-  <title>IVIS - FS18</title>
-  <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="lib/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="src/style.css">
 
-  <style> 
-      .bar { fill: steelblue; }    
+    <head>
+        <meta charset="utf-8"/>
+        <title>IVIS - FS18</title>
+        <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+        <link rel="stylesheet" href="src/css/style.css">
+    </head>
 
-    .arc text {
-      font: 10px sans-serif;
-      text-anchor: middle;
-    }
-    
-    .arc path {
-      stroke: #fff;
-    }
-    
-    </style>
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 background-container">
-          <div class="row">
-              <h1>Swiss vehicle traffic accidents</h1>
-          </div>
-          <br/>
-          <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-8">
-                <h3>Amount of the accidents per canton</h3>
-              </div>
-              <div class="col-md-2">
-                  <label for="year">Year:</label>
-                  <select class="form-control" id="year">
-                      <option>2012</option>
-                      <option>2013</option>
-                      <option>2014</option>
-                      <option>2015</option>
-                      <option>2016</option>
-                      <option>2017</option>
-                    </select>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-10">
-                  <p>Graph Nr 1</p>
-                  <svg></svg>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 background-container">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11">
+                            <h1 class="title display-3">Swiss vehicle traffic accidents</h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 graph-background">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 class="title display-5">Amount of accidents per canton</h3>
+                                </div>
+                                <div class="col-md-1">
+                                    <h3 for="year" class="title display-5">Year:</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control" id="year">
+                                        <option>2013</option>
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                        <option>2017</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <svg id="barchart"></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 graph-background">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 class="title display-5">Type of Accidents</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <svg id="donut"></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
 
-<<<<<<< HEAD
-<script src='lib/js/d3.v4.js'></script>
-<script src='lib/js/lodash.js'></script>
-<script src='src/script_first.js'></script>
-=======
-<script src='lib/d3.v4.js'></script>
-<script src='lib/lodash.js'></script>
-<script src='src/script_start.js'></script>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src='src/donut.js'></script>
->>>>>>> c296527c82db45050858700102aa14ca412f02a8
-</body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="lib/js/bootstrap.min.js"></script>
+
+        <script src='lib/js/d3.v4.js'></script>
+        <script src='lib/js/lodash.js'></script>
+        <script src='src/js/barchart.js'></script>
+
+        <script src='src/js/donut.js'></script>
+
+    </body>
 </html>
