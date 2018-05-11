@@ -1,6 +1,6 @@
 .background-container{
-    border: 1px solid #F7F7F7;
-    background-color: #F3F3F3;
+    border: 1px solid #F5F5F5;
+    background-color: #FAFAFA;
     margin-top: 50px;
     padding-top: 30px;
     margin-bottom: 100px;
@@ -42,4 +42,3 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
-
