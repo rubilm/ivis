@@ -1,7 +1,4 @@
 .background-container{
-    border: 1px solid #F5F5F5;
-    background-color: #FAFAFA;
-    margin-top: 50px;
     padding-top: 30px;
     margin-bottom: 100px;
 }
@@ -9,11 +6,7 @@
 .graph-background{
     background-color: #ffffff;
     padding: 20px;
-}
-
-.title{
-    color: #939393;
-    font-weight: lighter;
+    border-bottom: 1px solid rgb(203, 203, 203);
 }
 
 .display-5{
@@ -35,10 +28,35 @@
 }
 
 body{
-    background-image: url("../img/background-image.jpg");
+    background-image: url("../img/background-image1.jpg");
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.title{
+    color: #000000;
+    font-weight: lighter;
+}
+
+.header-title{
+    margin-top: 40px;
+    color: #ffffff;
+    font-weight: lighter;
+    font-size: 65px;
+}
+
+.header-subtitle{
+    margin-top: 40px;
+    color: #f3f3f3;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.header{
+    padding: 40px;
+    height: 350px;
+    background-color: #2A3338;
 }
