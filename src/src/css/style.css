@@ -27,15 +27,6 @@
     stroke: #fff;
 }
 
-body{
-    background-image: url("../img/background-image1.jpg");
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 .title{
     color: #000000;
     font-weight: lighter;
