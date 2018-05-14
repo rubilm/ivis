@@ -1,4 +1,5 @@
-const width_d = 960 - margin.left - margin.right;
+const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+const width_d = 700 - margin.left - margin.right;
 const height_d = 500 - margin.top - margin.bottom;
 
 const radius = Math.min(width_d, height_d) / 2;

@@ -6,12 +6,12 @@ $('#select-year').change(function () {
 })
 
 function load_barchart(year) {
-    
+
     console.log(year);
     // set the dimensions and margins of the graph
     let margin = { top: 20, right: 20, bottom: 30, left: 40 },
         width = 960 - margin.left - margin.right,
-        height = 700 - margin.top - margin.bottom;
+        height = 680 - margin.top - margin.bottom;
 
     // set the ranges
     const y = d3.scaleBand()
@@ -32,7 +32,7 @@ function load_barchart(year) {
             "translate(" + margin.left + "," + margin.top + ")");
 
 
-    d3.csv("data/"+year+".csv", function (error, data) {
+    d3.csv("data/" + year + ".csv", function (error, data) {
 
         // format the data
         data.forEach(function (d) {
@@ -70,7 +70,19 @@ function load_barchart(year) {
             .attr("y", function (d) {
                 return y(d.Kanton);
             })
-            .attr("height", y.bandwidth());
+            .attr("height", y.bandwidth())
+            .on("mouseover", function () {
+            console.log("hover the bar");
+        });
+
+        svg_barchart.selectAll(".bar").on("mouseout", function () {
+            console.log("unhover the bar");
+        });
+
+        svg_barchart.selectAll(".bar").on("click", function (d) {
+            alert(d);
+            console.log("click the bar");
+        });
 
         // add the x Axis
         svg_barchart.append("g")
