@@ -17,6 +17,10 @@
     fill: #1976D2;
   }
 
+.bar:hover{
+    cursor: pointer;
+}
+
 .arc text {
     font: 14px sans-serif;
     text-anchor: middle;
@@ -51,3 +55,28 @@
     height: 350px;
     background-color: #2A3338;
 }
+
+.option-year:hover{
+    cursor: pointer;
+}
+
+.pie {
+    margin: 20px;
+  }
+  
+  .pie text {
+    font-family: "Verdana";
+    fill: #888;
+  }
+  
+  .pie .name-text{
+    font-size: 1em;
+  }
+  
+  .pie .value-text{
+    font-size: 3em;
+  }
+
+  .donut-legend{
+      color: #888;
+  }
