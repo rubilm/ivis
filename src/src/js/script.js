@@ -176,5 +176,8 @@ function loadDonut(fatal, injured, heavy_Injured) {
         .attr('dy', '.35em')
         .text(text);
 
+    $("#injured-label").text(injured + " Injured");
+    $("#heavy-injured-label").text(heavy_Injured + " Heavy Injured");
+    $("#fatal-label").text(fatal + " Fatal");
     $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
 }

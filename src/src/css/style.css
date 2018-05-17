@@ -19,6 +19,7 @@
 
 .bar:hover{
     cursor: pointer;
+    fill: rgb(97, 176, 255);
 }
 
 .arc text {
@@ -79,4 +80,5 @@
 
   .donut-legend{
       color: #888;
+      font-size: 26px;
   }
