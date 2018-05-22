@@ -21,6 +21,8 @@ function load_barchart(year) {
     const x = d3.scaleLinear()
         .range([0, width]);
 
+        var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
     // append the svg_donut object to the body of the page
     // append a 'group' element to 'svg_donut'
     // moves the 'group' element to the top left margin
@@ -76,9 +78,20 @@ function load_barchart(year) {
             console.log("UNhover the bar");
         });
 
-        svg_barchart.selectAll(".bar").on("mouseover", function () {
+        svg_barchart.selectAll(".bar")
+        .on("mouseover", function(d){
+            tooltip
+              .style("left", d3.event.pageX - 50 + "px")
+              .style("top", d3.event.pageY - 70 + "px")
+              .style("display", "inline-block")
+              .html("<br>" + "Text");
+        })
+    	.on("mouseout", function(d){ tooltip.style("display", "none")})
+        /*.on("mouseover", function () {
             console.log("HOVER the bar");
-        });
+        })*/;
+
+       
 
         svg_barchart.selectAll(".bar").on("click", function (d) {
             loadDonut(d.Fatal, d.Injured, d.heavy_Injured);
