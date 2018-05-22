@@ -8,23 +8,17 @@ $('#select-year').change(function () {
 })
 
 function load_barchart(year) {
-    // set the dimensions and margins of the graph
-    let margin = { top: 20, right: 20, bottom: 30, left: 40 },
-        width = 960 - margin.left - margin.right,
-        height = 680 - margin.top - margin.bottom;
+    // create canvas
+    const canvHeight = 680;
+    const canvWidth = 960;
 
-    // set the ranges
-    const y = d3.scaleBand()
-        .range([height, 0])
-        .padding(0.1);
+    // calc the width and height depending on margins.
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const width = canvWidth - margin.left - margin.right;
+    const height = canvHeight - margin.top - margin.bottom;
 
-    const x = d3.scaleLinear()
-        .range([0, width]);
-
-    // append the svg_donut object to the body of the page
-    // append a 'group' element to 'svg_donut'
-    // moves the 'group' element to the top left margin
-    let svg_barchart = d3.select("#barchart")
+    // create svg
+    const svg_barchart = d3.select("#barchart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -32,7 +26,17 @@ function load_barchart(year) {
             "translate(" + margin.left + "," + margin.top + ")");
 
 
+    // load the data from the cleaned csv file. 
     d3.csv("data/" + year + ".csv", function (error, data) {
+
+        // set the ranges
+        const y = d3.scaleBand()
+            .range([height, 0])
+            .padding(0.1);
+
+        const x = d3.scaleLinear()
+            .range([0, width]);
+
 
         // format the data
         data.forEach(function (d) {
@@ -51,14 +55,12 @@ function load_barchart(year) {
         y.domain(data.map(function (d) {
             return d.Kanton;
         }));
-        //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
-        // append the rectangles for the bar chart
+        // append rectangles
         svg_barchart.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
-            //.attr("x", function(d) { return x(d.sales); })
             .attr("width", function (d) {
                 return x(d.Unfall);
             })
@@ -84,12 +86,12 @@ function load_barchart(year) {
             loadDonut(d.Fatal, d.Injured, d.heavy_Injured);
         });
 
-        // add the x Axis
+        // text label for the x axis
         svg_barchart.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
-        // add the y Axis
+        // text label for the y axis
         svg_barchart.append("g")
             .call(d3.axisLeft(y));
     });
