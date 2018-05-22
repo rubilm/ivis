@@ -17,13 +17,23 @@ function load_barchart(year) {
     const width = canvWidth - margin.left - margin.right;
     const height = canvHeight - margin.top - margin.bottom;
 
-    // create svg
-    const svg_barchart = d3.select("#barchart")
+    // create svg for barchart
+    let svg_barchart = d3.select("#barchart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
+
+    // set the ranges
+    const y = d3.scaleBand()
+        .range([height, 0])
+        .padding(0.1);
+
+    const x = d3.scaleLinear()
+        .range([0, width]);
+
+    var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
 
     // load the data from the cleaned csv file. 
@@ -78,9 +88,15 @@ function load_barchart(year) {
             console.log("UNhover the bar");
         });
 
-        svg_barchart.selectAll(".bar").on("mouseover", function () {
-            console.log("HOVER the bar");
-        });
+        svg_barchart.selectAll(".bar")
+            .on("mouseover", function (d) {
+                tooltip
+                    .style("left", d3.event.pageX + "px")
+                    .style("top", d3.event.pageY - 70 + "px")
+                    .style("display", "inline-block")
+                    .html("Kanton " + d.Kanton  + ", " + d.Unfall + " Unfälle");
+            })
+            .on("mouseout", function (d) { tooltip.style("display", "none") });
 
         svg_barchart.selectAll(".bar").on("click", function (d) {
             loadDonut(d.Fatal, d.Injured, d.heavy_Injured);
