@@ -53,7 +53,7 @@
                     <div class="col-md-10 graph-background">
                         <div class="row">
                             <div class="col-md-8">
-                                <h3 class="title display-5">Type of Accidents</h3>
+                                <h3 class="title display-5 donut-chart-title"></h3>
                             </div>
                         </div>
                         <div class="row">
@@ -61,11 +61,30 @@
                                 <br>
                                 <svg id="donut"></svg>
                             </div>
-                            <div class="col-md-6 donut-legend">
-                                <br><br>
-                                <p id="fatal-label"></p>
-                                <p id="injured-label"></p>
-                                <p id="heavy-injured-label"></p>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5 donut-legend">
+                                <br><br><br>
+                                <div class="row">
+                                    <div class="col-md-1 injured-legend">
+                                    </div>
+                                    <div class="col-md-11">
+                                        <p id="injured-label"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 hinjured-legend">
+                                    </div>
+                                    <div class="col-md-11">
+                                        <p id="heavy-injured-label"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-1 fatal-legend">
+                                        </div>
+                                        <div class="col-md-11">
+                                            <p id="fatal-label"></p>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
