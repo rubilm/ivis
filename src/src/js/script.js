@@ -8,24 +8,16 @@ $('#select-year').change(function () {
 })
 
 function load_barchart(year) {
-    // set the dimensions and margins of the graph
-    let margin = { top: 20, right: 20, bottom: 30, left: 40 },
-        width = 960 - margin.left - margin.right,
-        height = 680 - margin.top - margin.bottom;
+    // create canvas
+    const canvHeight = 500;
+    const canvWidth = 960;
 
-    // set the ranges
-    const y = d3.scaleBand()
-        .range([height, 0])
-        .padding(0.1);
+    // calc the width and height depending on margins.
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const width = canvWidth - margin.left - margin.right;
+    const height = canvHeight - margin.top - margin.bottom;
 
-    const x = d3.scaleLinear()
-        .range([0, width]);
-
-        var tooltip = d3.select("body").append("div").attr("class", "toolTip");
-
-    // append the svg_donut object to the body of the page
-    // append a 'group' element to 'svg_donut'
-    // moves the 'group' element to the top left margin
+    // create svg for barchart
     let svg_barchart = d3.select("#barchart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -33,92 +25,91 @@ function load_barchart(year) {
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
+    const tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
+    // load the data from the cleaned csv file. 
     d3.csv("data/" + year + ".csv", function (error, data) {
 
-        // format the data
+        // set the ranges
+        const y = d3.scaleBand()
+            .range([height, 0])
+            .padding(0.1);
+
+        const x = d3.scaleLinear()
+            .range([0, width]);
+
+
+        // declare the unfall as number
         data.forEach(function (d) {
-            d.Unfall = +d.Unfall;
+            d.Unfall = + d.Unfall;
         });
 
+        //sorting based on Unfall amount
         data.sort(function (a, b) {
             return a.Unfall - b.Unfall;
         });
 
-        // Scale the range of the data in the domains
+        // scale x to max Unfall
         x.domain([0, d3.max(data, function (d) {
             return d.Unfall;
         })]);
 
+        //scale y to Kanton name
         y.domain(data.map(function (d) {
             return d.Kanton;
         }));
-        //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
-        // append the rectangles for the bar chart
+        // append rectangles
         svg_barchart.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
-            //.attr("x", function(d) { return x(d.sales); })
             .attr("width", function (d) {
                 return x(d.Unfall);
             })
             .transition()
-            .duration(200)
             .delay(function (d, i) {
-                return i * 50;
+                return i * 80;
             })
             .attr("y", function (d) {
                 return y(d.Kanton);
             })
             .attr("height", y.bandwidth());
 
-        svg_barchart.selectAll(".bar").on("mouseout", function () {
-            console.log("UNhover the bar");
-        });
-
         svg_barchart.selectAll(".bar")
-        .on("mouseover", function () {
-            console.log("HOVER the bar");
-        })
-        /*
-        svg_barchart.selectAll(".bar")
-        .on("mouseover", function(d){
-            tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
-              .style("display", "inline-block")
-              .html("<br>" + "Text");
-        })
-    .on("mouseout", function(d){ tooltip.style("display", "none")})*/
-        /*.on("mouseover", function () {
-            console.log("HOVER the bar");
-        })*/;
-
+            .on("mouseover", function (d) {
+                tooltip
+                    .style("left", d3.event.pageX + "px")
+                    .style("top", d3.event.pageY - 70 + "px")
+                    .style("display", "inline-block")
+                    .html("Kanton " + d.Kanton + ", " + d.Unfall + " Unfälle");
+            })
+            .on("mouseout", function (d) { tooltip.style("display", "none") });
        
-
         svg_barchart.selectAll(".bar").on("click", function (d) {
             loadDonut(d.Fatal, d.Injured, d.heavy_Injured);
         });
-
-        // add the x Axis
+        // text label for the x axis
         svg_barchart.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
-        // add the y Axis
+        // text label for the y axis
         svg_barchart.append("g")
             .call(d3.axisLeft(y));
+
+        svg_barchart.selectAll(".bar").on("click", function (d) {
+            loadDonut(d.Fatal, d.Injured, d.heavy_Injured, d.Kanton, year, d.Unfall);
+        });
     });
 }
 
-function loadDonut(fatal, injured, heavy_Injured) {
+function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     $('.donut-chart-background').show();
     const data = [
-        { name: "Fatal", value: fatal },
-        { name: "Injured", value: injured },
-        { name: "Heavy Injured", value: heavy_Injured }
+        { name: "Fatal", value: fatal, color: "#FE7403" },
+        { name: "Injured", value: injured, color: "#0D76AD" },
+        { name: "Heavy Injured", value: heavy_Injured, color: "#0E9F3B" }
     ];
     let text = "";
 
@@ -168,25 +159,18 @@ function loadDonut(fatal, injured, heavy_Injured) {
                 .text(`${d.data.value}`)
                 .attr('text-anchor', 'middle')
                 .attr('dy', '.6em');
-        })
-        .on("mouseout", function (d) {
-            d3.select(this)
-                .style("cursor", "none")
-                .style("fill", color(this._current))
-                .select(".text-group").remove();
-        })
-        .append('path')
-        .attr('d', arc)
-        .attr('fill', (d, i) => color(i))
-        .on("mouseover", function (d) {
+                
             d3.select(this)
                 .style("cursor", "pointer");
         })
         .on("mouseout", function (d) {
             d3.select(this)
                 .style("cursor", "none")
-                .style("fill", color(this._current));
+                .select(".text-group").remove();
         })
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', function (d, i) { return d.data.color; })
         .each(function (d, i) { this._current = i; });
 
     g.append('text')
@@ -198,4 +182,8 @@ function loadDonut(fatal, injured, heavy_Injured) {
     $("#heavy-injured-label").text(heavy_Injured + " Heavy Injured");
     $("#fatal-label").text(fatal + " Fatal");
     $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
+
+    $(".donut-chart-title").text("Type of Accidents in canton " + canton + " " + year);
+
+   
 }

@@ -41,13 +41,13 @@
     margin-top: 40px;
     color: #ffffff;
     font-weight: lighter;
-    font-size: 65px;
+    font-size: 68px;
 }
 
 .header-subtitle{
     margin-top: 40px;
     color: #f3f3f3;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: lighter;
 }
 
@@ -92,4 +92,22 @@
     border: 1px solid #6F257F;
     padding: 14px;
     text-align: center;
+  }
+  
+  .fatal-legend{
+    height: 40px;
+    margin-top: 0px;
+    background-color: #FE7403;
+  }
+
+   
+  .hinjured-legend{
+    height: 40px;
+    background-color: #0D76AD;
+  }
+
+   
+  .injured-legend{
+    height: 40px;
+    background-color: #0E9F3B;
   }
