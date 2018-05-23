@@ -79,6 +79,11 @@ function load_barchart(year) {
         });
 
         svg_barchart.selectAll(".bar")
+        .on("mouseover", function () {
+            console.log("HOVER the bar");
+        })
+        /*
+        svg_barchart.selectAll(".bar")
         .on("mouseover", function(d){
             tooltip
               .style("left", d3.event.pageX - 50 + "px")
@@ -86,7 +91,7 @@ function load_barchart(year) {
               .style("display", "inline-block")
               .html("<br>" + "Text");
         })
-    	.on("mouseout", function(d){ tooltip.style("display", "none")})
+    .on("mouseout", function(d){ tooltip.style("display", "none")})*/
         /*.on("mouseover", function () {
             console.log("HOVER the bar");
         })*/;
