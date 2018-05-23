@@ -9,7 +9,7 @@ $('#select-year').change(function () {
 
 function load_barchart(year) {
     // create canvas
-    const canvHeight = 500;
+    const canvHeight = 550;
     const canvWidth = 960;
 
     // calc the width and height depending on margins.
@@ -41,17 +41,17 @@ function load_barchart(year) {
 
         // declare the unfall as number
         data.forEach(function (d) {
-            d.Unfall = + d.Unfall;
+            d.Value = + round(d.Unfall / d.anzahl_Fahrzeuge);
         });
 
         //sorting based on Unfall amount
         data.sort(function (a, b) {
-            return a.Unfall - b.Unfall;
+            return a.Value - b.Value;
         });
 
         // scale x to max Unfall
         x.domain([0, d3.max(data, function (d) {
-            return d.Unfall;
+            return d.Value;
         })]);
 
         //scale y to Kanton name
@@ -65,7 +65,7 @@ function load_barchart(year) {
             .enter().append("rect")
             .attr("class", "bar")
             .attr("width", function (d) {
-                return x(d.Unfall);
+                return x(d.Value);
             })
             .transition()
             .delay(function (d, i) {
@@ -82,7 +82,7 @@ function load_barchart(year) {
                     .style("left", d3.event.pageX + "px")
                     .style("top", d3.event.pageY - 70 + "px")
                     .style("display", "inline-block")
-                    .html("Kanton " + d.Kanton + ", " + d.Unfall + " Unfälle");
+                    .html(d.Kanton + ", " + d.Value + " accidents per vehicle");
             })
             .on("mouseout", function (d) { tooltip.style("display", "none") });
        
@@ -141,33 +141,6 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
         .data(pie(data))
         .enter()
         .append("g")
-        .on("mouseover", function (d) {
-            let g = d3.select(this)
-                .style("cursor", "pointer")
-                .style("fill", "black")
-                .append("g")
-                .attr("class", "text-group");
-
-            g.append("text")
-                .attr("class", "name-text")
-                .text(`${d.data.name}`)
-                .attr('text-anchor', 'middle')
-                .attr('dy', '-1.2em');
-
-            g.append("text")
-                .attr("class", "value-text")
-                .text(`${d.data.value}`)
-                .attr('text-anchor', 'middle')
-                .attr('dy', '.6em');
-                
-            d3.select(this)
-                .style("cursor", "pointer");
-        })
-        .on("mouseout", function (d) {
-            d3.select(this)
-                .style("cursor", "none")
-                .select(".text-group").remove();
-        })
         .append('path')
         .attr('d', arc)
         .attr('fill', function (d, i) { return d.data.color; })
@@ -183,7 +156,12 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     $("#fatal-label").text(fatal + " Fatal");
     $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
 
-    $(".donut-chart-title").text("Type of Accidents in canton " + canton + " " + year);
+    $(".donut-chart-title").text("Type of accidents in canton " + canton + " " + year + " - " + total + " accidents reported");
 
    
+}
+
+
+function round(value) {
+  return Math.ceil(value * 100000) / 100000;
 }

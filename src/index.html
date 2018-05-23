@@ -25,7 +25,7 @@
                     <div class="col-md-10 graph-background">
                         <div class="row">
                             <div class="col-md-8">
-                                <h3 class="title display-5">Amount of accidents per canton</h3>
+                                <h3 class="title display-5">Amount of accidents per canton per vehicle</h3>
                             </div>
                             <div class="col-md-1">
                                 <h3 for="year" class="title display-5">Year:</h3>
@@ -39,32 +39,35 @@
                                     <option value=2017>2017</option>
                                 </select>
                             </div>
+                            
                             <div class="col-md-1">
-                                                    
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-                                    info
+
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                    ?
                                 </button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">traffic accident visualisation</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">traffic accident visualisation</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>This visualisation shows the amount of traffic accidents per year and per
+                                                    canton. You can select a specific year and the data will be updated.
+                                                    If you click on a bar of a canton you get the details of this data</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                        <p>This visualisation shows the amount of traffic accidents per year and per canton. You can select a specific year and the data will be updated. If you click on a bar of a canton you get the details of this data</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            
+                        </div>
+
 
                         <div class="row">
                             <div class="col-md-10">
@@ -78,31 +81,8 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10 graph-background">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <h3 class="title display-5 donut-chart-title"></h3>
-                            </div>
-                            <div class="col-md-1">
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detailsModal">
-                                            info
-                                        </button>
-                                        <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="detailsModalLabel">traffic accident visualisation</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                <p>This visualisation shows the type and amount of traffic accidents which happened in the selected canton and year. 100% are all traffic accidents of the specified year</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
                             </div>
                         </div>
                         <div class="row">
@@ -112,7 +92,9 @@
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-5 donut-legend">
-                                <br><br><br>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="row">
                                     <div class="col-md-1 injured-legend">
                                     </div>
@@ -128,12 +110,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                        <div class="col-md-1 fatal-legend">
-                                        </div>
-                                        <div class="col-md-11">
-                                            <p id="fatal-label"></p>
-                                        </div>
+                                    <div class="col-md-1 fatal-legend">
                                     </div>
+                                    <div class="col-md-11">
+                                        <p id="fatal-label"></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
