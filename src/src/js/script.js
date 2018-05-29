@@ -210,8 +210,10 @@ function load_barchart(year) {
     });
 }
 
+//Create Donut Chart 
 function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     $('.donut-chart-background').show();
+    //set chart data and colors
     const data = [
         { name: "Fatal", value: fatal, color: "#FE7403" },
         { name: "Injured", value: injured, color: "#0D76AD" },
@@ -219,6 +221,7 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     ];
     let text = "";
 
+    //set properties
     const width = 800;
     const height = 300;
     const thickness = 40;
@@ -227,6 +230,7 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     const radius = Math.min(width, height) / 2;
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
+    //create donut
     let svg_donut = d3.select("#donut")
         .attr('class', 'pie')
         .attr('width', width)
@@ -235,10 +239,12 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     let g = svg_donut.append('g')
         .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
 
+    // set arc radiuses
     let arc = d3.arc()
         .innerRadius(radius - thickness)
         .outerRadius(radius);
 
+    // add pie chart
     let pie = d3.pie()
         .value(function (d) { return d.value; })
         .sort(null);
@@ -252,11 +258,13 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
         .attr('fill', function (d, i) { return d.data.color; })
         .each(function (d, i) { this._current = i; });
 
+    // append placeholder text
     g.append('text')
         .attr('text-anchor', 'middle')
         .attr('dy', '.35em')
         .text(text);
 
+    // show explanation labels
     $("#injured-label").text(injured + " injured");
     $("#heavy-injured-label").text(heavy_Injured + " heavy injured");
     $("#fatal-label").text(fatal + " fatal");
