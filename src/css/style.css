@@ -1,5 +1,5 @@
 .background-container{
-    padding-top: 80px;
+    padding-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -129,9 +129,14 @@
   }
 
   .data-bg{
-      padding-top: 80px;
+      padding-top: 50px;
+      margin-bottom: -50px;
   }
 
   .donut-chart-title{
-    padding-top: 80px;
+    padding-top: 50px;
+  }
+
+  .bg-intro{
+      padding-top: 30px;
   }
