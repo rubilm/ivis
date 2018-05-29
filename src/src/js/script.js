@@ -219,6 +219,7 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     ];
     let text = "";
 
+    //set properties
     const width = 800;
     const height = 300;
     const thickness = 40;
@@ -252,11 +253,13 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
         .attr('fill', function (d, i) { return d.data.color; })
         .each(function (d, i) { this._current = i; });
 
+    // append placeholder text
     g.append('text')
         .attr('text-anchor', 'middle')
         .attr('dy', '.35em')
         .text(text);
 
+    // show explanation labels
     $("#injured-label").text(injured + " injured");
     $("#heavy-injured-label").text(heavy_Injured + " heavy injured");
     $("#fatal-label").text(fatal + " fatal");
