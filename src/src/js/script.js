@@ -219,13 +219,11 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
         { name: "Injured", value: injured, color: "#0D76AD" },
         { name: "Heavy Injured", value: heavy_Injured, color: "#0E9F3B" }
     ];
-    let text = "";
 
     //set properties
     const width = 800;
     const height = 300;
     const thickness = 40;
-    const duration = 750;
 
     const radius = Math.min(width, height) / 2;
     const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -257,12 +255,6 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
         .attr('d', arc)
         .attr('fill', function (d, i) { return d.data.color; })
         .each(function (d, i) { this._current = i; });
-
-    // append placeholder text
-    g.append('text')
-        .attr('text-anchor', 'middle')
-        .attr('dy', '.35em')
-        .text(text);
 
     // show explanation labels
     $("#injured-label").text(injured + " injured");
