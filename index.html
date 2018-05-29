@@ -25,8 +25,8 @@
                     the amount of registred vehicles of a specific year over all 26 cantons are visaulized. On the right
                     barchart, we can see the possibility for an accident per vehicle over all 26 cantons. According of those
                     visualisations, we can see that the amount of vehicles has not an impact to the possibility for an accident
-                    per vehicle. It is possible thar other factors like infrastructure or amount of habitants have more impact
-                    to the accidents rate.
+                    per vehicle. It is possible thar other factors like infrastructure or number of inhabitants could have
+                    more impact to the accidents rate.
                 </p>
 
                 <p> For example: In 2013, the canton ZH (zurich) has the most amount of registered vehicles. But ZH (zurich)
@@ -139,48 +139,72 @@
                 </div>
                 <div class="row data-bg">
 
-                        <div class="col-md-4">
-                            <h3 class="title display-5">Data Sources</h3>
-                            <p><a target="_blank" href="https://www.bfs.admin.ch/bfs/de/home/statistiken/kataloge-datenbanken/daten.html?dyn_prodima=900175&dyn_pageIndex=0">www.bfs.admin.ch</a></p>
-                            <p><a target="_blank" href="https://www.astra.admin.ch/astra/de/home/dokumentation/unfalldaten/statistische-auswertungen/statistiken-nach-kantonen.html">www.astra.admin.ch</a></p>
-                                     
-                        </div>
-                
-                        <div class="col-md-4">
+                    <div class="col-md-4">
+                        <h3 class="title display-5">Data Sources</h3>
+                        <br>
+                        <p>
+                            <a target="_blank" href="https://www.bfs.admin.ch/bfs/de/home/statistiken/kataloge-datenbanken/daten.html?dyn_prodima=900175&dyn_pageIndex=0">
+                                www.bfs.admin.ch
+                            </a>
+                            (Accessed 28.5.2018)
+                        </p>
+                        <p>
+                            <a target="_blank" href="https://www.astra.admin.ch/astra/de/home/dokumentation/unfalldaten/statistische-auswertungen/statistiken-nach-kantonen.html">
+                                www.astra.admin.ch
+                            </a>
+                            (Accessed 28.5.2018)
+                        </p>
+                    </div>
 
-                            <h3 class="title display-5">Approach</h3>
-                            <h5>1. information gathering</h5>
-                                <ul>
-                                    <li>find interesting question</li>
-                                    <li>find data to visualize and answer question</li>
-                                </ul>
-                            <h5>2. data wrangling</h5>
-                                <ul>
-                                    <li>check data</li>
-                                    <li>convert data to a easy to use d3 format</li>
-                                </ul>
-                            <h5>3. sketching</h5>
-                                <ul>
-                                    <li>sketches of different chart types</li>
-                                    <li>sketch of final visualisation</li>
-                                </ul>
-                            <h5>4. data visualisation</h5>
-                                <ul>
-                                    <li>visualisation with d3</li>
-                                    <li>build different charts</li>
-                                </ul>
-                            <h5>5. documentation</h5>
-                                <ul>
-                                    <li>code refactoring</li>
-                                    <li>code comment</li>
-                                    <li>this documentation</li>
-                                </ul>
+                    <div class="col-md-4">
+                        <h3 class="title display-5">Approach</h3>
+                        <br>
+                        <h6>1. information gathering</h6>
+                        <ul>
+                            <li>find interesting question</li>
+                            <li>find data to visualize and answer question</li>
+                        </ul>
+                        <h6>2. data wrangling</h6>
+                        <ul>
+                            <li>check data</li>
+                            <li>convert data to a easy to use d3 format</li>
+                        </ul>
+                        <h6>3. sketching (<a href="#" data-toggle="modal" data-target="#sketchig-modal">see here</a>)</h6>
+                        <ul>
+                            <li>sketches of different chart types</li>
+                            <li>sketch of final visualisation</li>
+                        </ul>
+                        <h6>4. data visualisation</h6>
+                        <ul>
+                            <li>visualisation with d3</li>
+                            <li>build different charts</li>
+                        </ul>
+                        <h6>5. documentation</h6>
+                        <ul>
+                            <li>code refactoring</li>
+                            <li>code comment</li>
+                            <li>this documentation</li>
+                        </ul>
+
+                        <!-- Sketch Modal -->
+                        <div class="modal fade" id="sketchig-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <img src="src/img/sketch.jpg" width="500" height="auto">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                                <h3 class="title display-5">Team</h3>
-                                <p><img src="src/img/Rubil.PNG" alt="Rubil" height="250"></p>
-                                <p><img src="src/img/Simon.PNG" alt="Rubil" height="250"></p>
-                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="title display-5">Team</h3>
+                        <br>
+                        <p>
+                            <img src="src/img/Rubil.PNG" alt="Rubil" height="250" style="margin-left: 80px">
+                        </p>
+                        <p>
+                            <img src="src/img/Simon.PNG" alt="Rubil" height="250" style="margin-left: 80px">
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
