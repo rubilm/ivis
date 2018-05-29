@@ -4,9 +4,8 @@
 }
 
 .graph-background{
-    background-color: #ffffff;
-    padding: 20px;
     border-bottom: 1px solid rgb(203, 203, 203);
+    padding-bottom: 30px;
 }
 
 .display-5{
@@ -14,10 +13,19 @@
 }
 
 .bar {
-    fill: #1976D2;
+    fill: rgb(254, 145, 3);
   }
 
 .bar:hover{
+    cursor: pointer;
+    fill: rgb(255, 191, 107);
+}
+
+.bar_second {
+    fill: #1976D2;
+  }
+
+.bar_second:hover{
     cursor: pointer;
     fill: rgb(97, 176, 255);
 }
@@ -103,11 +111,11 @@
    
   .hinjured-legend{
     height: 40px;
-    background-color: #0D76AD;
+    background-color: #0E9F3B;
   }
 
    
   .injured-legend{
     height: 40px;
-    background-color: #0E9F3B;
+    background-color: #0D76AD;
   }
