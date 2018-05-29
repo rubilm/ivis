@@ -1,0 +1,135 @@
+.background-container{
+    padding-top: 30px;
+    margin-bottom: 100px;
+}
+
+.graph-background{
+    border-bottom: 1px solid rgb(203, 203, 203);
+    padding-bottom: 30px;
+}
+
+.display-5{
+    font-weight: normal;
+}
+
+.bar {
+    fill: rgb(254, 145, 3);
+  }
+
+.bar:hover{
+    cursor: pointer;
+    fill: rgb(255, 191, 107);
+}
+
+.bar_second {
+    fill: #1976D2;
+  }
+
+.bar_second:hover{
+    cursor: pointer;
+    fill: rgb(97, 176, 255);
+}
+
+.arc text {
+    font: 14px sans-serif;
+    text-anchor: middle;
+    color: #ffffff;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+.title{
+    color: #000000;
+    font-weight: lighter;
+}
+
+.chart-title{
+    font-size: 21px;
+    color: #000000;
+    font-weight: lighter; 
+}
+
+.header-title{
+    margin-top: 40px;
+    margin-left: 70px;
+    color: #ffffff;
+    font-weight: lighter;
+    font-size: 68px;
+}
+
+.header-subtitle{
+    margin-top: 40px;
+    margin-left: 70px;
+    color: #f3f3f3;
+    font-size: 32px;
+    font-weight: lighter;
+}
+
+.header{
+    padding: 40px;
+    height: 350px;
+    background-color: #2A3338;
+}
+
+.option-year:hover{
+    cursor: pointer;
+}
+
+.pie {
+    margin: 20px;
+  }
+  
+  .pie text {
+    font-family: "Verdana";
+    fill: #888;
+  }
+  
+  .pie .name-text{
+    font-size: 1em;
+  }
+  
+  .pie .value-text{
+    font-size: 3em;
+  }
+
+  .donut-legend{
+      color: #888;
+      font-size: 26px;
+  }
+
+  .toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .fatal-legend{
+    height: 40px;
+    margin-top: 0px;
+    background-color: #FE7403;
+  }
+
+   
+  .hinjured-legend{
+    height: 40px;
+    background-color: #0E9F3B;
+  }
+
+   
+  .injured-legend{
+    height: 40px;
+    background-color: #0D76AD;
+  }
+
+  #map img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
