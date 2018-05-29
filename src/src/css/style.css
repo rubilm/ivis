@@ -53,6 +53,7 @@
 
 .header-title{
     margin-top: 40px;
+    margin-left: 70px;
     color: #ffffff;
     font-weight: lighter;
     font-size: 68px;
@@ -60,6 +61,7 @@
 
 .header-subtitle{
     margin-top: 40px;
+    margin-left: 70px;
     color: #f3f3f3;
     font-size: 32px;
     font-weight: lighter;
@@ -125,3 +127,9 @@
     height: 40px;
     background-color: #0D76AD;
   }
+
+  #map img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}

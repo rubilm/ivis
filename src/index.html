@@ -11,26 +11,32 @@
 <body>
     <div class="container-fluid">
         <div class="row header">
-            <div class="col-md-1"></div>
             <div class="col-md-11">
-                <h1 class="header-title display-4">Data analysis: Swiss vehicle traffic accidents</h1>
+                <h1 class="header-title display-4">Data analysis: swiss vehicle traffic accidents</h1>
                 <p class="header-subtitle">Visualizations done with D3</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="alert alert-info" role="alert">
-                    <p>On this page, we can see visualisations of switzerlands vehicle traffic data. On the left barchart, the
-                        amount of reported vehicles of a specific year over all 26 cantons are visaulized. On the right barchart,
-                        we can see the percentage of traffic accident per vehicle over all 26 cantons. According of those
-                        visualisations, we can see that the amount of vehicles has not an impact to the percentage of accident
-                        per vehicle. It is possible thar other factors like infrastructure or amount of habitants has more
-                        impact to the accidents ratio.
-                    </p>
-                    <hr>
-                    <p> For example: In 2013, the canton ZH (zurich) has the most amount of registered vehicles. But ZH (zurich)
-                        is only at the 10th place in the ranking of percentage of accident per vehicle</p>
+            <div class="col-md-10 graph-background">
+                <br>
+                <h3 for="year" class="title display-5">Introduction</h3>
+                <p>On this page, we can see visualisations of switzerlands vehicle traffic data. On the left barchart, the amount
+                    of reported vehicles of a specific year over all 26 cantons are visaulized. On the right barchart, we
+                    can see the possibility for an accident per vehicle over all 26 cantons. According of those visualisations,
+                    we can see that the amount of vehicles has not an impact to the possibility for an accident per vehicle.
+                    It is possible thar other factors like infrastructure or amount of habitants have more impact to the
+                    accidents rate.
+                </p>
+
+                <p> For example: In 2013, the canton ZH (zurich) has the most amount of registered vehicles. But ZH (zurich)
+                    is only at the 10th place in the ranking of possibility of an accident per vehicle. Or in the year 2015,
+                    BL (basle) has the highest possibility for an accidents per vehicle. But on the left chart, BL (basle)
+                    is only on the 13th place.</p>
+
+                <div id="map">
+                    <img src="src/img/swiss_map.jpg">
+                    In the above image, we can see switzerland with its 26 cantons.
                 </div>
             </div>
             <div class="col-md-1"></div>
@@ -40,7 +46,7 @@
             <div class="col-md-10 background-container">
                 <div class="row">
                     <div class="col-md-3">
-                        <h3 for="year" class="title display-5">Choose the year:</h3>
+                        <h3 for="year" class="title display-5">You can choose a year:</h3>
                     </div>
                     <div class="col-md-2">
                         <select class="form-control option-year" id="select-year">
@@ -52,6 +58,7 @@
                         </select>
                     </div>
                 </div>
+                <br>
                 <div class="row ">
                     <div class="col-md-6 graph-background">
                         <div class="row">
@@ -74,7 +81,7 @@
                             <div class="col-md-10">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3 class="chart-title">Average amount of accidents per vehicle</h3>
+                                        <h3 class="chart-title">Possibility for an accident per vehicle</h3>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -84,7 +91,9 @@
                                 </div>
                             </div>
                         </div>
-                        <p><b>click on a bar to see details of the reported accidents</b></p>
+                        <p>
+                            <b>click on a bar to see details of the reported accidents</b>
+                        </p>
                     </div>
                 </div>
                 <br/>
