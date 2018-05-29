@@ -95,10 +95,6 @@ function load_barchart_vehicle(year) {
                     .html(d.Kanton + ", " + d.anzahl_Fahrzeuge + " registered vehicles");
             })
             .on("mouseout", function (d) { tooltip.style("display", "none") });
-
-        svg_barchart.selectAll(".bar_second").on("click", function (d) {
-            loadDonut(d.Fatal, d.Injured, d.heavy_Injured);
-        });
         // text label for the x axis
         svg_barchart.append("g")
             .attr("transform", "translate(0," + height + ")")

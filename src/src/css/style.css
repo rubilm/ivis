@@ -45,6 +45,12 @@
     font-weight: lighter;
 }
 
+.chart-title{
+    font-size: 21px;
+    color: #000000;
+    font-weight: lighter; 
+}
+
 .header-title{
     margin-top: 40px;
     color: #ffffff;
