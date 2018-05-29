@@ -205,13 +205,13 @@ function load_barchart(year) {
             .call(d3.axisLeft(y));
 
         svg_barchart.selectAll(".bar").on("click", function (d) {
-            loadDonut(d.Fatal, d.Injured, d.heavy_Injured, d.Kanton, year, d.Unfall);
+            load_donut_chart(d.Fatal, d.Injured, d.heavy_Injured, d.Kanton, year, d.Unfall);
         });
     });
 }
 
 //Create Donut Chart 
-function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
+function load_donut_chart(fatal, injured, heavy_Injured, canton, year, total) {
     $('.donut-chart-background').show();
     //set chart data and colors
     const data = [
@@ -260,7 +260,7 @@ function loadDonut(fatal, injured, heavy_Injured, canton, year, total) {
     $("#injured-label").text(injured + " injured");
     $("#heavy-injured-label").text(heavy_Injured + " heavy injured");
     $("#fatal-label").text(fatal + " fatal");
-    $("html, body").animate({ scrollTop: document.body.scrollHeight }, "slow");
+    $("html, body").animate({ scrollTop: $(".donut-chart-background").offset().top }, "slow");
 
     $(".donut-chart-title").text("Types of accidents in canton " + canton + " " + year + " - " + total + " accidents reported");
 }
