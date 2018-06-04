@@ -1,31 +1,31 @@
-.background-container{
+.background-container {
     padding-top: 50px;
     margin-bottom: 100px;
 }
 
-.graph-background{
+.graph-background {
     border-bottom: 1px solid rgb(203, 203, 203);
     padding-bottom: 30px;
 }
 
-.display-5{
+.display-5 {
     font-weight: normal;
 }
 
 .bar {
     fill: rgb(254, 145, 3);
-  }
+}
 
-.bar:hover{
+.bar:hover {
     cursor: pointer;
     fill: rgb(255, 191, 107);
 }
 
 .bar_second {
     fill: #1976D2;
-  }
+}
 
-.bar_second:hover{
+.bar_second:hover {
     cursor: pointer;
     fill: rgb(97, 176, 255);
 }
@@ -36,22 +36,22 @@
     color: #ffffff;
 }
 
-.arc path { 
+.arc path {
     stroke: #fff;
 }
 
-.title{
+.title {
     color: #000000;
     font-weight: lighter;
 }
 
-.chart-title{
+.chart-title {
     font-size: 21px;
     color: #000000;
-    font-weight: lighter; 
+    font-weight: lighter;
 }
 
-.header-title{
+.header-title {
     margin-top: 40px;
     margin-left: 70px;
     color: #ffffff;
@@ -59,7 +59,7 @@
     font-size: 68px;
 }
 
-.header-subtitle{
+.header-subtitle {
     margin-top: 40px;
     margin-left: 70px;
     color: #f3f3f3;
@@ -67,39 +67,26 @@
     font-weight: lighter;
 }
 
-.header{
+.header {
     padding: 40px;
     height: 350px;
     background-color: #2A3338;
 }
 
-.option-year:hover{
+.option-year:hover {
     cursor: pointer;
 }
 
-.pie {
+.donut {
     margin: 20px;
-  }
-  
-  .pie text {
-    font-family: "Verdana";
-    fill: #888;
-  }
-  
-  .pie .name-text{
-    font-size: 1em;
-  }
-  
-  .pie .value-text{
-    font-size: 3em;
-  }
+}
 
-  .donut-legend{
-      color: #888;
-      font-size: 26px;
-  }
+.donut-legend {
+    color: #888;
+    font-size: 26px;
+}
 
-  .toolTip {
+.toolTip {
     position: absolute;
     display: none;
     min-width: 80px;
@@ -108,39 +95,37 @@
     border: 1px solid #000000;
     padding: 8px;
     text-align: center;
-  }
-  
-  .fatal-legend{
+}
+
+.fatal-legend {
     height: 40px;
     margin-top: 0px;
     background-color: #FE7403;
-  }
+}
 
-   
-  .hinjured-legend{
+.hinjured-legend {
     height: 40px;
     background-color: #0E9F3B;
-  }
+}
 
-   
-  .injured-legend{
+.injured-legend {
     height: 40px;
     background-color: #0D76AD;
-  }
+}
 
-  .data-bg{
-      padding-top: 50px;
-      margin-bottom: -50px;
-  }
-
-  .donut-chart-title{
+.data-bg {
     padding-top: 50px;
-  }
+    margin-bottom: -50px;
+}
 
-  .bg-intro{
-      padding-top: 30px;
-  }
+.donut-chart-title {
+    padding-top: 50px;
+}
 
-  .text-warning{
-      margin-left:40px;
-  }
+.bg-intro {
+    padding-top: 30px;
+}
+
+.text-warning {
+    margin-left: 40px;
+}

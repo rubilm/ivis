@@ -35,7 +35,9 @@ function load_barchart_vehicle(year) {
             "translate(" + margin.left + "," + margin.top + ")");
 
     //tooltip for barchart
-    const tooltip = d3.select("body").append("div").attr("class", "toolTip");
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "toolTip");
 
     // load the data from the cleaned csv file based on the selected year 
     d3.csv("data/" + year + ".csv", function (error, data) {
@@ -74,30 +76,38 @@ function load_barchart_vehicle(year) {
             .data(data)
             .enter().append("rect")
             .attr("class", "bar_second")
-            .attr("width", function (d) {
-                return x(d.anzahl_Fahrzeuge);
-            })
+            .attr("width",
+                function (d) {
+                    return x(d.anzahl_Fahrzeuge);
+                })
             .transition()
-            .delay(function (d, i) {
-                return i * 80;
-            })
-            .attr("y", function (d) {
-                return y(d.Kanton);
-            })
+            .delay(
+                function (d, i) {
+                    return i * 80;
+                })
+            .attr("y",
+                function (d) {
+                    return y(d.Kanton);
+                })
             .attr("height", y.bandwidth());
 
         //show tooltip on bar hover
         svg_barchart.selectAll(".bar_second")
-            .on("mouseover", function (d) {
-                tooltip
-                    .style("left", d3.event.pageX + "px")
-                    .style("top", d3.event.pageY - 70 + "px")
-                    .style("display", "inline-block")
-                    .html(d.Kanton + ", " + d.anzahl_Fahrzeuge + " registered vehicles");
-            });
+            .on("mouseover",
+                function (d) {
+                    tooltip
+                        .style("left", d3.event.pageX + "px")
+                        .style("top", d3.event.pageY - 70 + "px")
+                        .style("display", "inline-block")
+                        .html(d.Kanton + ", " + d.anzahl_Fahrzeuge + " registered vehicles");
+                });
 
         //hide tooltip on bar mouseout
-        svg_barchart.selectAll(".bar_second").on("mouseout", function (d) { tooltip.style("display", "none") });
+        svg_barchart.selectAll(".bar_second")
+            .on("mouseout",
+                function (d) {
+                    tooltip.style("display", "none")
+                });
 
         // x axis label
         svg_barchart.append("g")
@@ -132,7 +142,9 @@ function load_barchart(year) {
             "translate(" + margin.left + "," + margin.top + ")");
 
     //tooltip for barchart
-    const tooltip = d3.select("body").append("div").attr("class", "toolTip");
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "toolTip");
 
     // load the data from the cleaned csv file based on the selected year 
     d3.csv("data/" + year + ".csv", function (error, data) {
@@ -157,45 +169,54 @@ function load_barchart(year) {
         });
 
         // ticks for x axis 
-        x.domain([0, d3.max(data, function (d) {
-            return d.Value;
-        })]);
+        x.domain([0, d3.max(data,
+            function (d) {
+                return d.Value;
+            })]);
 
         //ticks for y axis
-        y.domain(data.map(function (d) {
-            return d.Kanton;
-        }));
+        y.domain(data.map(
+            function (d) {
+                return d.Kanton;
+            }));
 
         // append rectangles
         svg_barchart.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("width", function (d) {
-                return x(d.Value);
-            })
+            .attr("width",
+                function (d) {
+                    return x(d.Value);
+                })
             .transition()
-            .delay(function (d, i) {
-                return i * 80;
-            })
-            .attr("y", function (d) {
-                return y(d.Kanton);
-            })
+            .delay(
+                function (d, i) {
+                    return i * 80;
+                })
+            .attr("y",
+                function (d) {
+                    return y(d.Kanton);
+                })
             .attr("height", y.bandwidth());
 
         //show tooltip on bar hover
         svg_barchart.selectAll(".bar")
-            .on("mouseover", function (d) {
-                tooltip
-                    .style("left", d3.event.pageX + "px")
-                    .style("top", d3.event.pageY - 70 + "px")
-                    .style("display", "inline-block")
-                    .html(d.Kanton + ", " + d.Value + "% possibility for an accident per vehicle");
-            });
+            .on("mouseover",
+                function (d) {
+                    tooltip
+                        .style("left", d3.event.pageX + "px")
+                        .style("top", d3.event.pageY - 70 + "px")
+                        .style("display", "inline-block")
+                        .html(d.Kanton + ", " + d.Value + "% possibility for an accident per vehicle");
+                });
 
         //hide tooltip on bar mouseout
         svg_barchart.selectAll(".bar")
-            .on("mouseout", function (d) { tooltip.style("display", "none") });
+            .on("mouseout",
+                function (d) {
+                    tooltip.style("display", "none")
+                });
 
         // x axis label
         svg_barchart.append("g")
@@ -207,9 +228,10 @@ function load_barchart(year) {
             .call(d3.axisLeft(y));
 
         //load donut chart on bar click
-        svg_barchart.selectAll(".bar").on("click", function (d) {
-            load_donut_chart(d.Fatal, d.Injured, d.heavy_Injured, d.Kanton, year, d.Unfall);
-        });
+        svg_barchart.selectAll(".bar").on("click",
+            function (d) {
+                load_donut_chart(d.Fatal, d.Injured, d.heavy_Injured, d.Kanton, year, d.Unfall);
+            });
     });
 }
 
@@ -221,8 +243,27 @@ function load_donut_chart(fatal, injured, heavy_Injured, canton, year, total) {
     //set properties
     const width = 800;
     const height = 300;
-    const thickness = 40;
+
+    // create svg for donutchart
+    let svg_donut = d3.select("#donut")
+        .attr('class', 'donut')
+        .attr('width', width)
+        .attr('height', height);
+
+    //set properties
+    const thickness = 50;
     const radius = Math.min(width, height) / 2;
+
+    // set arc inner and outter radius
+    let arc = d3.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - thickness);
+
+    // donut chart on accident types from data list
+    let donut = d3.pie()
+        .value(function (d) {
+            return d.value;
+        });
 
     // set chart data and colors
     const data = [
@@ -231,34 +272,21 @@ function load_donut_chart(fatal, injured, heavy_Injured, canton, year, total) {
         { name: "Heavy Injured", value: heavy_Injured, color: "#0E9F3B" }
     ];
 
-    // create svg for donutchart
-    let svg_donut = d3.select("#donut")
-        .attr('class', 'pie')
-        .attr('width', width)
-        .attr('height', height);
-
     // append g to the svg
     let g = svg_donut.append('g')
         .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
 
-    // set arc radius
-    let arc = d3.arc()
-        .innerRadius(radius - thickness)
-        .outerRadius(radius);
-
-    // pie chart on accident types from data list
-    let pie = d3.pie()
-        .value(function (d) { return d.value; });
-
-    //draw the donut chatr
+    //draw the donut chart
     let path = g.selectAll('path')
-        .data(pie(data))
+        .data(donut(data))
         .enter()
         .append("g")
         .append('path')
         .attr('d', arc)
-        .attr('fill', function (d, i) { return d.data.color; })
-        .each(function (d, i) { this._current = i; });
+        .attr('fill',
+            function (d, i) {
+                return d.data.color;
+            });
 
     // show explanation labels
     $("#injured-label").text(injured + " injured");
@@ -268,7 +296,7 @@ function load_donut_chart(fatal, injured, heavy_Injured, canton, year, total) {
     //scroll down to donut chart
     $("html, body").animate({ scrollTop: $(".donut-chart-background").offset().top }, "slow");
 
-    //set titles
+    //set title
     $(".donut-chart-title").text("Types of accidents in canton " + canton + " " + year + " - " + total + " accidents reported");
 }
 
