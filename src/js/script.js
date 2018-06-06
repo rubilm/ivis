@@ -15,9 +15,7 @@ $('#select-year').change(function () {
 
 /*
 load barchart with amount of vehicles
-guidline / tutorial
-http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
-https://bl.ocks.org/sarafec/cad29ff9a6702c22c83ce561abe46796
+guidline / tutorial: http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
 */
 function load_barchart_vehicle(year) {
     // create canvas
@@ -90,6 +88,13 @@ function load_barchart_vehicle(year) {
             .data(data)
             .enter().append("rect")
             .attr("class", "bar_second")
+            .attr("id", function (d) {
+                return "P" + d.Kanton;
+            })
+            .attr("width",
+                function (d) {
+                    return x(d.anzahl_Fahrzeuge);
+                })
             .transition()
             .delay(
                 function (d, i) {
@@ -100,27 +105,27 @@ function load_barchart_vehicle(year) {
                 function (d) {
                     return y(d.Kanton);
                 })
-            .attr("height", y.bandwidth())
-            .attr("width",
-                function (d) {
-                    return x(d.anzahl_Fahrzeuge);
-                });
+            .attr("height", y.bandwidth());
 
         // show tooltip on bar hover
         svg_barchart.selectAll(".bar_second")
             .on("mouseover",
                 function (d) {
+                    $('#' + d.Kanton).removeClass("bar")
+                    $('#' + d.Kanton).addClass("bar_hover");
                     tooltip
                         .style("left", d3.event.pageX + "px")
-                        .style("top", d3.event.pageY - 70 + "px")
+                        .style("top", d3.event.pageY - 120 + "px")
                         .style("display", "inline-block")
-                        .html(d.Kanton + ", " + d.anzahl_Fahrzeuge + " registered vehicles");
+                        .html(d.Kanton + "</br>" + d.anzahl_Fahrzeuge + " registered vehicles </br> " + d.Unfall + " accidents");
                 });
 
         // hide tooltip on bar mouseout
         svg_barchart.selectAll(".bar_second")
             .on("mouseout",
                 function (d) {
+                    $('#' + d.Kanton).removeClass("bar_hover")
+                    $('#' + d.Kanton).addClass("bar");
                     tooltip.style("display", "none")
                 });
 
@@ -129,9 +134,7 @@ function load_barchart_vehicle(year) {
 
 /*
 load barchart with percentages of accidents
-guidline / tutorial
-http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
-https://bl.ocks.org/sarafec/cad29ff9a6702c22c83ce561abe46796
+guidline / tutorial: http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
 */
 function load_barchart(year) {
     // create canvas
@@ -204,6 +207,13 @@ function load_barchart(year) {
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
+            .attr("id", function (d) {
+                return d.Kanton;
+            })
+            .attr("width",
+                function (d) {
+                    return x(d.Value);
+                })
             .transition()
             .delay(
                 function (d, i) {
@@ -214,16 +224,14 @@ function load_barchart(year) {
                 function (d) {
                     return y(d.Kanton);
                 })
-            .attr("height", y.bandwidth())
-            .attr("width",
-                function (d) {
-                    return x(d.Value);
-                });
+            .attr("height", y.bandwidth());
 
         // show tooltip on bar hover
         svg_barchart.selectAll(".bar")
             .on("mouseover",
                 function (d) {
+                    $('#P' + d.Kanton).removeClass("bar_second")
+                    $('#P' + d.Kanton).addClass("bar_second_hover");
                     tooltip
                         .style("left", d3.event.pageX + "px")
                         .style("top", d3.event.pageY - 70 + "px")
@@ -235,6 +243,8 @@ function load_barchart(year) {
         svg_barchart.selectAll(".bar")
             .on("mouseout",
                 function (d) {
+                    $('#P' + d.Kanton).removeClass("bar_second_hover")
+                    $('#P' + d.Kanton).addClass("bar_second");
                     tooltip.style("display", "none")
                 });
 
@@ -249,8 +259,7 @@ function load_barchart(year) {
 
 /*
 create donut chart
-guidline / tuturial
-http://www.adeveloperdiary.com/d3-js/create-a-simple-donut-chart-using-d3-js/
+guidline / tuturial: http://www.adeveloperdiary.com/d3-js/create-a-simple-donut-chart-using-d3-js/
 */
 function load_donut_chart(fatal, injured, heavy_Injured, canton, year, total) {
     // set chart data and colors

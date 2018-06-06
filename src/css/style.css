@@ -18,7 +18,12 @@
 
 .bar:hover {
     cursor: pointer;
-    fill: rgb(255, 191, 107);
+    fill: rgb(255, 211, 154);
+}
+
+.bar_hover{
+    cursor: pointer;
+    fill: rgb(255, 211, 154);
 }
 
 .bar_second {
@@ -27,6 +32,10 @@
 
 .bar_second:hover {
     cursor: pointer;
+    fill: rgb(97, 176, 255);
+}
+
+.bar_second_hover {
     fill: rgb(97, 176, 255);
 }
 
