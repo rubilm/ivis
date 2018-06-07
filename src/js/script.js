@@ -15,7 +15,9 @@ $('#select-year').change(function () {
 
 /*
 load barchart with amount of vehicles
-guidline / tutorial: http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
+guidline / tutorial: 
+http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
+https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3
 */
 function load_barchart_vehicle(year) {
     // create canvas
@@ -134,7 +136,9 @@ function load_barchart_vehicle(year) {
 
 /*
 load barchart with percentages of accidents
-guidline / tutorial: http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
+guidline / tutorial: 
+http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/
+https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3
 */
 function load_barchart(year) {
     // create canvas
